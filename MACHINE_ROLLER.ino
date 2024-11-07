@@ -1,17 +1,14 @@
-const int NC   = 12;
-const int NO   = 11;
-const int LS   = 10; 
-const int IR   = 13;
-const int DIR  = 15;
-const int STEP = 14;
-const int UP   = 18;
-const int DN   = 19;
-const int R    = 20;
-const int G    = 21;
-
-
-
-
+const int UP   = 2;
+const int DN   = 3;
+const int NC   = 4;
+const int NO   = 5;
+const int LS   = 6; 
+const int IR   = 7;
+const int DIR  = A3;
+const int STEP = A4;
+const int R    = A5;
+const int G    = A6;
+const int B    = A7;
 
 const int stepsPerRevolution = 800;
 int limit,temp = 0;
@@ -57,16 +54,16 @@ void ind_off(){
 void setup()
 {
   // Declare pins as Outputs
-  pinMode(10,  INPUT);
-  pinMode(11,  INPUT);
-  pinMode(12,  INPUT);
-  pinMode(13,  INPUT);
-  pinMode(14, OUTPUT);
-  pinMode(15, OUTPUT);
-  pinMode(18, OUTPUT);
-  pinMode(19, OUTPUT);
-  pinMode(20, OUTPUT);
-  pinMode(21, OUTPUT);
+  pinMode(LS,    INPUT);
+  pinMode(IR,    INPUT);
+  pinMode(NO,    INPUT);
+  pinMode(NC,    INPUT);
+  pinMode(UP,   OUTPUT);
+  pinMode(DN,   OUTPUT);
+  pinMode(R,    OUTPUT);
+  pinMode(G,    OUTPUT);
+  pinMode(STEP, OUTPUT);
+  pinMode(DIR,  OUTPUT);
   
   
   Serial.begin(115200);
@@ -74,7 +71,7 @@ void setup()
   if(prox == 1){
     lift_up();
   }
-  digitalWrite(3,1);
+  digitalWrite(R,1);
 }
 void loop()
 {
